@@ -1,0 +1,11 @@
+var patcher = window.TemplatePatcher;
+patcher.setDebug(true);
+//patcher.setFinder("id='topic-title'");
+
+patcher.addGeneralPatcher("b61f24d89806d16ef6e980c10a068434", function(ast, md5hash, string){
+  var adsense_inject_one = <%= evaluate("../discourse/templates/topic_one.js.html").to_json %>;
+  var adsense_inject_two = <%= evaluate("../discourse/templates/topic_two.js.html").to_json %>;
+
+  window.TemplatePatcher.insertAt(ast, 5, adsense_inject_one);
+  window.TemplatePatcher.insertAt(ast, "if[1] if-else if", adsense_inject_two);
+});
