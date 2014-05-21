@@ -3,7 +3,7 @@ var patcher = window.TemplatePatcher;
 //patcher.setFinder('list-area');
 
 patcher.addGeneralPatcher("e2c98d5525a295d87656569cc62d41c6", function(ast, md5hash, string){
-  var adsense_inject = <%= evaluate("../discourse/templates/discovery.js.html").to_json %>;
+  var adsense_inject = <%= evaluate("../discourse/templates/topic_list_top.js.html").to_json %>;
 
   window.TemplatePatcher.insertAt(ast, 13, adsense_inject);
 });

@@ -3,9 +3,11 @@ var patcher = window.TemplatePatcher;
 //patcher.setFinder("id='topic-title'");
 
 patcher.addGeneralPatcher("b61f24d89806d16ef6e980c10a068434", function(ast, md5hash, string){
-  var adsense_inject_one = <%= evaluate("../discourse/templates/topic_one.js.html").to_json %>;
-  var adsense_inject_two = <%= evaluate("../discourse/templates/topic_two.js.html").to_json %>;
+  var adsense_inject_top = <%= evaluate("../discourse/templates/topic_top.js.html").to_json %>;
+  var adsense_inject_bottom = <%= evaluate("../discourse/templates/topic_bottom.js.html").to_json %>;
 
-  window.TemplatePatcher.insertAt(ast, 5, adsense_inject_one);
-  window.TemplatePatcher.insertAt(ast, "if[1] if-else if [0]", adsense_inject_two);
+  window.TemplatePatcher.insertAt(ast, 5, adsense_inject_top);
+  window.TemplatePatcher.insertAt(ast, "if if-else if [4]", adsense_inject_bottom);
 });
+
+
