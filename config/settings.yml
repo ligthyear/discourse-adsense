@@ -11,6 +11,9 @@ adsense_plugin:
   adsense_ad_slot_topiclist_top_mobile:
     client: true
     default: ''
+  adsense_manual_ad_slot_topiclist_top:
+    client: true
+    default: ''
   adsense_show_topic_top:
     client: true
     default: false
