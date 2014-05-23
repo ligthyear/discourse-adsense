@@ -9,8 +9,6 @@
     var position = slotid.replace('_mobile', '');
     if (eval('Discourse.SiteSettings.adsense_show_' + position)) {
 
-      console.log(eval('Discourse.SiteSettings.adsense_manual_ad_slot_' + slotid.trim()));
-
       if (eval('Discourse.SiteSettings.adsense_manual_ad_slot_' + slotid.trim())){
         return new Handlebars.SafeString(eval('Discourse.SiteSettings.adsense_manual_ad_slot_' + slotid.trim()));
       } else {
